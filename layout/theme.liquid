@@ -1,1 +1,159 @@
+import React from 'react';
 
+const App = () => {
+  return (
+    <div className="bg-white text-gray-800 font-sans antialiased">
+      {/* Header */}
+      <header className="bg-white shadow-sm sticky top-0 z-50">
+        <div className="container mx-auto px-4 py-3 flex justify-between items-center">
+          <div className="text-2xl font-bold text-gray-900">LuxuryShop</div>
+          <nav className="hidden md:flex space-x-8">
+            <a href="#" className="text-gray-700 hover:text-gray-900 font-medium transition">Home</a>
+            <a href="#" className="text-gray-700 hover:text-gray-900 font-medium transition">Shop</a>
+            <a href="#" className="text-gray-700 hover:text-gray-900 font-medium transition">Über uns</a>
+            <a href="#" className="text-gray-700 hover:text-gray-900 font-medium transition">Kontakt</a>
+          </nav>
+          <div className="flex items-center space-x-4">
+            <a href="#" className="text-gray-700 hover:text-gray-900 transition">🔍</a>
+            <a href="#" className="text-gray-700 hover:text-gray-900 transition">🛒</a>
+          </div>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <section className="relative h-screen md:h-[80vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 bg-cover bg-center z-0" style={{ backgroundImage: "url(https://picsum.photos/1600/900 )" }}></div>
+        <div className="absolute inset-0 bg-black opacity-50 z-10"></div>
+        <div className="relative z-20 text-center text-white max-w-4xl px-4">
+          <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-4 transform transition duration-700 translate-y-0 opacity-100" style={{ animation: "fadeInUp 1s ease-out forwards" }}>
+            Entdecke die neue Kollektion
+          </h1>
+          <p className="text-lg md:text-xl mb-8 transform transition duration-700 translate-y-4 opacity-0" style={{ animation: "fadeInUp 1s ease-out forwards", animationDelay: "0.3s" }}>
+            Hochwertige Produkte, die dein Leben bereichern
+          </p>
+          <a href="#" className="inline-block bg-yellow-500 text-white px-8 py-3 rounded-full font-semibold hover:bg-yellow-600 transition transform hover:scale-105 duration-300" style={{ animation: "fadeInUp 1s ease-out forwards", animationDelay: "0.6s" }}>
+            Jetzt entdecken
+          </a>
+        </div>
+      </section>
+
+      {/* Trust Badges */}
+      <section className="py-10 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div className="p-6 border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition">
+              <div className="text-3xl mb-4 text-yellow-500">📦</div>
+              <h3 className="text-lg font-semibold mb-2">Sicherer Versand</h3>
+              <p className="text-gray-600">Schnell, sicher und zuverlässig – immer pünktlich bei dir.</p>
+            </div>
+            <div className="p-6 border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition">
+              <div className="text-3xl mb-4 text-yellow-500">🛡️</div>
+              <h3 className="text-lg font-semibold mb-2">Käuferschutz</h3>
+              <p className="text-gray-600">Deine Sicherheit steht für uns an erster Stelle.</p>
+            </div>
+            <div className="p-6 border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition">
+              <div className="text-3xl mb-4 text-yellow-500">💯</div>
+              <h3 className="text-lg font-semibold mb-2">100% Zufriedenheit</h3>
+              <p className="text-gray-600">Wir garantieren deine volle Zufriedenheit mit jedem Produkt.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Products */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">Unsere Bestseller</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            {[1, 2, 3, 4].map((item) => (
+              <div key={item} className="bg-white rounded-lg overflow-hidden shadow hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
+                <div className="h-72 bg-gray-200 flex items-center justify-center overflow-hidden">
+                  <img src={`https://picsum.photos/400/400?random=${item}`} alt={`Produkt ${item}`} className="h-full w-full object-cover transition duration-500 hover:scale-110" />
+                </div>
+                <div className="p-5">
+                  <h3 className="text-lg font-semibold mb-1">Premium Produkt {item}</h3>
+                  <p className="text-gray-600 mb-3">Kurzbeschreibung des Produkts</p>
+                  <div className="flex justify-between items-center">
+                    <span className="font-bold text-lg">€49.99</span>
+                    <button className="bg-yellow-500 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-yellow-600 transition">In den Warenkorb</button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Newsletter */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-2xl mx-auto text-center">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">Bleibe immer informiert</h2>
+            <p className="text-gray-600 mb-6">Melde dich jetzt für unseren Newsletter an und erhalte exklusive Angebote und Updates.</p>
+            <form className="flex flex-col sm:flex-row gap-4">
+              <input type="email" placeholder="Deine E-Mail-Adresse" className="px-5 py-3 border border-gray-300 rounded-md flex-grow focus:outline-none focus:ring-2 focus:ring-yellow-500" />
+              <button type="submit" className="bg-yellow-500 text-white px-6 py-3 rounded-md font-semibold hover:bg-yellow-600 transition">Abonnieren</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-100 py-12">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+              <h3 className="text-lg font-semibold mb-4">LuxuryShop</h3>
+              <p className="text-gray-600">Hochwertige Produkte und exklusive Angebote für anspruchsvolle Kunden</p>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Kundenservice</h3>
+              <ul className="space-y-2 text-gray-600">
+                <li><a href="#" className="hover:text-gray-900 transition">Kontakt</a></li>
+                <li><a href="#" className="hover:text-gray-900 transition">FAQ</a></li>
+                <li><a href="#" className="hover:text-gray-900 transition">Versand & Rückgabe</a></li>
+                <li><a href="#" className="hover:text-gray-900 transition">AGB</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Unternehmen</h3>
+              <ul className="space-y-2 text-gray-600">
+                <li><a href="#" className="hover:text-gray-900 transition">Über uns</a></li>
+                <li><a href="#" className="hover:text-gray-900 transition">Impressum</a></li>
+                <li><a href="#" className="hover:text-gray-900 transition">Datenschutz</a></li>
+                <li><a href="#" className="hover:text-gray-900 transition">Jobs</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Folge uns</h3>
+              <div className="flex space-x-4 mt-4">
+                <a href="#" className="text-gray-600 hover:text-gray-900 transition">Instagram</a>
+                <a href="#" className="text-gray-600 hover:text-gray-900 transition">Facebook</a>
+                <a href="#" className="text-gray-600 hover:text-gray-900 transition">Twitter</a>
+              </div>
+            </div>
+          </div>
+          <div className="border-t mt-10 pt-6 text-center text-gray-600 text-sm">
+            <p>&copy; {new Date().getFullYear()} LuxuryShop. Alle Rechte vorbehalten.</p>
+          </div>
+        </div>
+      </footer>
+
+      {/* Custom CSS for animations */}
+      <style jsx>{`
+        @keyframes fadeInUp {
+          from {
+            transform: translateY(20px);
+            opacity: 0;
+          }
+          to {
+            transform: translateY(0);
+            opacity: 1;
+          }
+        }
+      `}</style>
+    </div>
+  );
+};
+
+export default App;
